@@ -7,6 +7,7 @@ import 'angular-material';
 import 'angular-route';
 
 import AppController from 'src/AppController';
+import homeController from 'src/templates/home/home.controller';
 import Users from 'src/users/Users';
 
 export default angular.module('starter-app', ['ngMaterial', 'ngRoute', Users.name])
@@ -28,10 +29,12 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', Users.nam
 		$routeProvider
 			.when("/", {
 				title: "home",
-				templateUrl: "src/templates/home/home.html"
+				templateUrl: "src/templates/home/home.html",
+				controller: "homeController"
 			}).when("/page2", {
 				title: "Page2",
 				templateUrl: "src/templates/page2/page2.html"
 			});
 	})
-	.controller('AppController', AppController);
+	.controller('AppController', AppController)
+	.controller('homeController', homeController);

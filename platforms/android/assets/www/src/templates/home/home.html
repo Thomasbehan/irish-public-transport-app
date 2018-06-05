@@ -1,7 +1,19 @@
 This is the homepage :)
 <br/>
 <a href="#/page2"><button>Click here to go to the second page</button></a>
-
+<md-content layout-fill>
+	<md-card ng-repeat="stop in stops">
+		<md-card-title>
+			<md-card-title-text>
+				<span class="md-headline">{{stop.fullname}}</span>
+				<span class="md-subhead">Last Update: {{stop.lastupdated}}</span>
+			</md-card-title-text>
+			<md-card-content>
+				<span ng-repeat="route in stop.operators.routes" class="md-body-1">{{route}}</span>
+			</md-card-content>
+		</md-card-title>
+	</md-card>
+</md-content>
 <md-button aria-label="test" class="md-fab md-warn md-fab-bottom-right">
 	+
 </md-button>
