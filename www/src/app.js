@@ -8,6 +8,7 @@ import 'angular-route';
 
 import AppController from 'src/AppController';
 import homeController from 'src/templates/home/home.controller';
+import resultsController from 'src/templates/results/results.controller';
 import Users from 'src/users/Users';
 
 export default angular.module('starter-app', ['ngMaterial', 'ngRoute', Users.name])
@@ -16,6 +17,7 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', Users.nam
 		$mdIconProvider
 			.defaultIconSet("./assets/svg/avatars.svg", 128)
 			.icon("menu", "./assets/svg/menu.svg", 24)
+			.icon("search", "./assets/svg/search.svg", 24)
 			.icon("share", "./assets/svg/share.svg", 24)
 			.icon("google_plus", "./assets/svg/google_plus.svg", 24)
 			.icon("hangouts", "./assets/svg/hangouts.svg", 24)
@@ -31,10 +33,12 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', Users.nam
 				title: "home",
 				templateUrl: "src/templates/home/home.html",
 				controller: "homeController"
-			}).when("/page2", {
-				title: "Page2",
-				templateUrl: "src/templates/page2/page2.html"
+			}).when("/results/:stopid", {
+				title: "results",
+				templateUrl: "src/templates/results/results.html",
+				controller: "resultsController"
 			});
 	})
 	.controller('AppController', AppController)
-	.controller('homeController', homeController);
+	.controller('homeController', homeController)
+	.controller('resultsController', resultsController);

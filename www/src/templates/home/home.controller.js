@@ -1,7 +1,10 @@
-export default function homeController($scope, $http) {
+export default function homeController($scope, $http, $location) {
  	$scope.stops = [];
-	$scope.url = "https://data.smartdublin.ie/cgi-bin/rtpi/busstopinformation?stopid&format=json";
-	$http.get($scope.url).then(function(response) {
-			$scope.stops = response.data.results;
-	});
+//	$scope.url = "http://www.dublinbus.ie/api/events?format=json";
+//	$http.get($scope.url).then(function(response) {
+//			$scope.stops = response.data.events;
+//	});
+	$scope.searchStop = function(search){
+		$location.path('/results/' + search.stop);
+	}
 }
