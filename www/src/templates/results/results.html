@@ -1,0 +1,13 @@
+<md-content>
+	test {{stop.stopid}}: checked at {{stop.timestamp}}
+	<md-card ng-repeat="route in stops">
+		<md-card-title>
+			<md-card-title-text>
+				{{route.route}}
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content>
+			Due in {{route.estArrival}}
+		</md-card-content>
+	</md-card>
+</md-content>
