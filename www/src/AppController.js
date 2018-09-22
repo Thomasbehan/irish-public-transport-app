@@ -4,7 +4,7 @@
  * @param $mdSidenav
  * @constructor
  */
-function AppController(UsersDataService, $mdSidenav) {
+function AppController(UsersDataService, $mdSidenav, $scope) {
   var self = this;
 
   self.selected     = null;
@@ -31,7 +31,10 @@ function AppController(UsersDataService, $mdSidenav) {
   function toggleUsersList() {
     $mdSidenav('left').toggle();
   }
-
+    $scope.sidenavItems = [
+        {"name": "Home", "icon": "home", "desc": "The main page including search and favourites", "link": "#/"},
+        {"name": "Settings", "icon": "settings", "desc": "A settings/about page", "link": "#/settings"}
+    ];
   /**
    * Select the current avatars
    * @param menuId
@@ -41,4 +44,4 @@ function AppController(UsersDataService, $mdSidenav) {
   }
 }
 
-export default [ 'UsersDataService', '$mdSidenav', AppController ];
+export default [ 'UsersDataService', '$mdSidenav', '$scope', AppController ];

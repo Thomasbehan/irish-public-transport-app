@@ -28,14 +28,15 @@
 
         <!-- Container #3 -->
         <md-sidenav class="md-whiteframe-4dp" md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" ng-click="app.toggleList()">
-            <ul>
-                <li>
-                    <a ng-href="#/">Search</a>
-                </li>
-                <li>
-                    <a ng-href="#/page2">Page 2</a>
-                </li>
-            </ul>
+            <md-list ng-if="sidenavItems.length > 0" flex layout-fill>
+                <md-list-item class="md-3-line" ng-repeat="nav in sidenavItems" ng-href="{{nav.link}}">
+                    <md-icon md-svg-icon="{{nav.icon}}" class="md-avatar"></md-icon>
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{nav.name}}</h3>
+                        <p>{{nav.desc}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
         </md-sidenav>
 
         <!-- Container #4 -->
