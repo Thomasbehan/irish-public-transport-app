@@ -24,9 +24,7 @@ export default function homeController($scope, $http, $location, $mdDialog, $loc
             fullscreen: false
         })
         .then(function (result) {
-
-        }, function (error) {
-            console.error(error);
+        }, function () {
         });
     };
 }
