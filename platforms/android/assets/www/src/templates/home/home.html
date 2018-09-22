@@ -1,19 +1,18 @@
-This is the homepage :)
-<br/>
-<a href="#/page2"><button>Click here to go to the second page</button></a>
-<md-content layout-fill>
-	<md-card ng-repeat="stop in stops">
+<md-content layout="column" layout-align="center center">
+	<p>Welcome to the Irish Public Transport App</p>
+	<md-divider></md-divider>
+	<md-card>
 		<md-card-title>
 			<md-card-title-text>
-				<span class="md-headline">{{stop.fullname}}</span>
-				<span class="md-subhead">Last Update: {{stop.lastupdated}}</span>
+				Search
 			</md-card-title-text>
-			<md-card-content>
-				<span ng-repeat="route in stop.operators.routes" class="md-body-1">{{route}}</span>
-			</md-card-content>
 		</md-card-title>
+		<md-card-content layout="row">
+			<md-input-container>
+				<label>Search Stop No.</label>
+				<input ng-model="search.stop">
+			</md-input-container>
+			<md-button ng-click="searchStop(search)" class="md-raised"><md-icon md-svg-icon="search"></md-icon></md-button>
+		</md-card-content>
 	</md-card>
 </md-content>
-<md-button aria-label="test" class="md-fab md-warn md-fab-bottom-right">
-	+
-</md-button>
