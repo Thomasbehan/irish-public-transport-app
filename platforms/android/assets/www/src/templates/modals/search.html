@@ -1,0 +1,18 @@
+<md-content layout="column" layout-align="center center">
+	<p>Search by stop number below:</p>
+	<md-divider></md-divider>
+	<md-card>
+		<md-card-title>
+			<md-card-title-text>
+				Search
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content layout="row">
+			<md-input-container>
+				<label>Search Stop No.</label>
+				<input type="number" ng-model="search">
+			</md-input-container>
+			<md-button ng-click="searchStop(search)" class="md-raised"><md-icon md-svg-icon="search"></md-icon></md-button>
+		</md-card-content>
+	</md-card>
+</md-content>

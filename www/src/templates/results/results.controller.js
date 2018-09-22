@@ -1,12 +1,33 @@
-export default function homeController($scope, $routeParams, $http, $location, $interval) {
+export default function homeController($scope, $routeParams, $http, $location, $interval, $localStorage) {
 	$scope.stops = [];
 	$scope.stop = [];
+	$scope.isFavourite = false;
 	$scope.stop.stopid = $routeParams.stopid;
+    $scope.toggleFavourite = function(){
+        if($localStorage.favourite == undefined){
+            $localStorage.favourite = [];
+        }
+        if($scope.isFavourite == false){
+            $localStorage.favourite.push($scope.stop.stopid);
+        }else{
+            var index = $localStorage.favourite.indexOf($scope.stop.stopid);
+            if (index > -1) {
+               $localStorage.favourite.splice(index, 1);
+            }
+        }
+        $scope.isFavourite = !$scope.isFavourite;
+    }
 	$scope.url = "https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=" + $routeParams.stopid + "&format=json";
 	$scope.checkStop = function(){
 		$http.get($scope.url).then(function (response) {
 			$scope.stop = response.data;
-			console.log(response.data);
+            if($localStorage.favourite != undefined){
+                if($localStorage.favourite.indexOf($scope.stop.stopid) > -1){
+                    $scope.isFavourite = true;
+                }
+            }else{
+                $localStorage.favourite = [];
+            }
 			$scope.stops = response.data.results;
 			angular.forEach($scope.stops, function (d) {
 				var currentTime = moment($scope.stop.timestamp, 'DD/MM/YYYY hh:mm:ss').unix() * 1000;

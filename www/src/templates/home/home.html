@@ -3,16 +3,27 @@
 	<md-divider></md-divider>
 	<md-card>
 		<md-card-title>
-			<md-card-title-text>
-				Search
+			<md-card-title-text ng-if="favourites.length > 0">
+				Favourites
+			</md-card-title-text>
+			<md-card-title-text ng-if="favourites.length <= 0">
+				No Favourites saved
 			</md-card-title-text>
 		</md-card-title>
-		<md-card-content layout="row">
-			<md-input-container>
-				<label>Search Stop No.</label>
-				<input ng-model="search.stop">
-			</md-input-container>
-			<md-button ng-click="searchStop(search)" class="md-raised"><md-icon md-svg-icon="search"></md-icon></md-button>
+        <md-list ng-if="favourites.length > 0" flex layout-fill>
+            <md-list-item class="md-3-line" ng-repeat="fav in favourites" ng-click="searchStop(fav)">
+              <img ng-src="assets/img/bus-stop.png" class="md-avatar" alt="test" />
+              <div class="md-list-item-text" layout="column">
+                <h3>Stop No: {{fav}}</h3>
+                <p>Click here to see real-time data</p>
+              </div>
+            </md-list-item>
+        </md-list>
+		<md-card-content ng-if="favourites.length <= 0" layout="column">
+            <p class="md-body-1">You can add a favourite by hitting the heart while looking at real time data.</p>
 		</md-card-content>
 	</md-card>
 </md-content>
+<md-button ng-click="showSearch($event)" class="md-fab md-fab-bottom-right" aria-label="search">
+    <md-icon md-svg-icon="search"></md-icon>
+</md-button>

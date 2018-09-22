@@ -5,13 +5,14 @@ import 'angular-animate';
 import 'angular-aria';
 import 'angular-material';
 import 'angular-route';
+import 'ngstorage';
 
 import AppController from 'src/AppController';
 import homeController from 'src/templates/home/home.controller';
 import resultsController from 'src/templates/results/results.controller';
 import Users from 'src/users/Users';
 
-export default angular.module('starter-app', ['ngMaterial', 'ngRoute', Users.name])
+export default angular.module('starter-app', ['ngMaterial', 'ngRoute', 'ngStorage', Users.name])
 	.config(($mdIconProvider, $mdThemingProvider) => {
 		// Register the user `avatar` icons
 		$mdIconProvider
@@ -22,6 +23,8 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', Users.nam
 			.icon("google_plus", "./assets/svg/google_plus.svg", 24)
 			.icon("hangouts", "./assets/svg/hangouts.svg", 24)
 			.icon("twitter", "./assets/svg/twitter.svg", 24)
+			.icon("unfavourite", "./assets/svg/favorite.svg", 24)
+			.icon("favourite", "./assets/svg/favorite-border.svg", 24)
 			.icon("phone", "./assets/svg/phone.svg", 24);
 
 		$mdThemingProvider.theme('default')
