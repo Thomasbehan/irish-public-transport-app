@@ -1,0 +1,17 @@
+<md-content>
+    Routes:
+    <md-input-container>
+        <label>Search</label>
+        <input ng-model="search">
+      </md-input-container>
+	<md-card ng-repeat="route in routes | filter: search">
+		<md-card-title>
+			<md-card-title-text>
+				{{route.route}}
+			</md-card-title-text>
+		</md-card-title>
+		<md-card-content>
+			<md-button class="md-raised md-accent" ng-href="#/results/{{route.route}}" >Get Info</md-button>
+		</md-card-content>
+	</md-card>
+</md-content>
