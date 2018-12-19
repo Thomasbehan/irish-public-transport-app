@@ -131,3 +131,7 @@ span.name {
   font-size: 1.1em;
   padding-left: 5px;
 }
+.md-white {
+    background: #fff!important;
+    color: rgba(0,0,0,0.87)!important;
+}

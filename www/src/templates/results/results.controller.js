@@ -20,7 +20,7 @@ export default function homeController($scope, $routeParams, $http, $location, $
 	$scope.url = "https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=" + $routeParams.stopid + "&format=json";
 	$scope.checkStop = function(){
 		$http.get($scope.url).then(function (response) {
-            if (response.data.errorcode === undefined) {
+            if (response.data.errorcode === "0") {
                 $scope.stop = response.data;
                 if($localStorage.favourite != undefined){
                     if($localStorage.favourite.indexOf($scope.stop.stopid) > -1){
@@ -68,7 +68,7 @@ export default function homeController($scope, $routeParams, $http, $location, $
                 });
             } else {
                 $location.path('/');
-                $mdToast.show($mdToast.simple().textContent('Stop not found! lel').position('bottom center'));
+                $mdToast.show($mdToast.simple().textContent('Stop not found!').position('bottom center'));
             }
 		});
 	};
