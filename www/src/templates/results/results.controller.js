@@ -1,6 +1,7 @@
-export default function homeController($scope, $routeParams, $http, $location, $interval, $localStorage) {
+export default function homeController($scope, $routeParams, $http, $location, $interval, $localStorage, $rootScope, $filter) {
 	$scope.stops = [];
 	$scope.stop = [];
+    $rootScope.loading = true;
 	$scope.isFavourite = false;
 	$scope.stop.stopid = $routeParams.stopid;
     $scope.toggleFavourite = function(){
@@ -19,7 +20,9 @@ export default function homeController($scope, $routeParams, $http, $location, $
     }
 	$scope.url = "https://data.smartdublin.ie/cgi-bin/rtpi/realtimebusinformation?stopid=" + $routeParams.stopid + "&format=json";
 	$scope.checkStop = function(){
+        $rootScope.loading = true;
 		$http.get($scope.url).then(function (response) {
+            $rootScope.loading = false;
 			$scope.stop = response.data;
             if($localStorage.favourite != undefined){
                 if($localStorage.favourite.indexOf($scope.stop.stopid) > -1){
@@ -31,6 +34,7 @@ export default function homeController($scope, $routeParams, $http, $location, $
 			$scope.stops = response.data.results;
 			angular.forEach($scope.stops, function (d) {
 				var currentTime = moment($scope.stop.timestamp, 'DD/MM/YYYY hh:mm:ss').unix() * 1000;
+                $scope.stop.formattedTime = $filter('date')(currentTime, 'dd MMM - HH:mm:ss');
 				var newDate = moment(d.arrivaldatetime, 'DD/MM/YYYY hh:mm:ss').unix() * 1000;
 				var difference = newDate - currentTime;
 				var daysDifference = Math.floor(difference / 1000 / 60 / 60 / 24);

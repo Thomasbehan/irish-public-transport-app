@@ -131,3 +131,9 @@ span.name {
   font-size: 1.1em;
   padding-left: 5px;
 }
+.top-loading-bar {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

@@ -1,9 +1,9 @@
 <md-content>
-	test {{stop.stopid}}: checked at {{stop.timestamp}}
+	Stop No. {{stop.stopid}}: checked at {{stop.formattedTime}}
 	<md-card ng-repeat="route in stops">
 		<md-card-title>
 			<md-card-title-text>
-				{{route.route}}
+				Stop No.{{route.route}}
 			</md-card-title-text>
 		</md-card-title>
 		<md-card-content>

@@ -17,6 +17,7 @@ System.config({
     "angular-messages": "github:angular/bower-angular-messages@1.5.8",
     "angular-mocks": "github:angular/bower-angular-mocks@1.5.8",
     "angular-route": "github:angular/bower-angular-route@1.5.8",
+    "angular-storage": "npm:angular-storage@0.0.15",
     "css": "github:systemjs/plugin-css@0.1.37",
     "json": "github:systemjs/plugin-json@0.1.2",
     "ngstorage": "npm:ngstorage@0.3.11",
