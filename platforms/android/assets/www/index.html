@@ -14,7 +14,7 @@
 </head>
 
 <body ng-cloak layout="column" ng-controller="AppController as app">
-
+    <md-progress-linear ng-show="$root.loading" class="md-accent top-loading-bar" ng-init="$root.loading=false" md-mode="indeterminate"></md-progress-linear>
     <!-- Container #1 (see wireframe) -->
     <md-toolbar layout="row" class="md-toolbar-tools">
         <md-button class="menu md-icon-button" hide-gt-sm ng-click="app.toggleList()" aria-label="Show Menu">
