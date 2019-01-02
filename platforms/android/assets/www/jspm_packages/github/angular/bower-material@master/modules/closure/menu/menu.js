@@ -4,7 +4,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.9-master-0046467
+ * v1.1.11-master-54e3413
  */
 goog.provide('ngmaterial.components.menu');
 goog.require('ngmaterial.components.backdrop');
@@ -304,7 +304,7 @@ function MenuController($mdMenu, $attrs, $element, $scope, $mdUtil, $timeout, $r
  *
  * The width of the menu when it is open may be specified by specifying a `width`
  * attribute on the `md-menu-content` element.
- * See the [Material Design Spec](https://material.io/guidelines/components/menus.html#menus-simple-menus)
+ * See the [Material Design Spec](https://material.io/archive/guidelines/components/menus.html#menus-simple-menus)
  * for more information.
  *
  *

@@ -824,7 +824,7 @@ input {
       @if $s != '' { $suffix : '#{$s}-#{$i * 5}'; }
       @else        { $suffix : '#{$i * 5}';       }
 
-      $offsets : '.offset-#{$suffix}, .flex-offset-#{$suffix}';
+      $offsets : '.offset-#{$suffix}, .flex-offset-#{$suffix}, .layout-margin .flex-offset-#{$suffix}, .layout-margin .offset-#{$suffix}';
     }
 
     #{$offsets} {
@@ -841,7 +841,7 @@ input {
       @if $s != '' {  $suffix : '#{$s}-#{$i}';   }
       @else        {  $suffix : '#{$i}';         }
 
-      $offsets : '.offset-#{$suffix}, .flex-offset-#{$suffix} ';
+      $offsets : '.offset-#{$suffix}, .flex-offset-#{$suffix}, .layout-margin .flex-offset-#{$suffix}, .layout-margin .offset-#{$suffix}';
     }
 
     #{$offsets} {
@@ -857,7 +857,7 @@ input {
       @if $s != '' {  $suffix : '#{$s}-#{$i}';   }
       @else        {  $suffix : '#{$i}';         }
 
-      $offsets : '.offset-#{$suffix}, .flex-offset-#{$suffix} ';
+      $offsets : '.offset-#{$suffix}, .flex-offset-#{$suffix}, .layout-margin .flex-offset-#{$suffix}, .layout-margin .offset-#{$suffix}';
     }
 
     #{$offsets} {
@@ -947,29 +947,12 @@ input {
       // Required by Chrome M48+ due to http://crbug.com/546034
       @if $i == 0 {  min-height: 0;  }
     }
-
-    @if ($name != '') {
-      .layout#{$name}-row > .flex-#{$i * 5} {
-        flex: 1 1 100%;
-        max-width: #{$value};
-        max-height: 100%;
-        box-sizing: border-box;
-
-        // Required by Chrome M48+ due to http://crbug.com/546034
-        @if $i == 0 {  min-width: 0;  }
-      }
-
-      .layout#{$name}-column > .flex-#{$i * 5} {
-        flex: 1 1 100%;
-        max-width: 100%;
-        max-height: #{$value};
-        box-sizing: border-box;
-
-        // Required by Chrome M48+ due to http://crbug.com/546034
-        @if $i == 0 {  min-height: 0;  }
-      }
-    }
   }
+
+  @if ($name == '') {
+    .flex-33 { flex: 1 1 100%;  max-width: 33.33%;  max-height: 100%; box-sizing: border-box; }
+    .flex-66 { flex: 1 1 100%;  max-width: 66.66%;  max-height: 100%; box-sizing: border-box; }
+   }
 
   .layout-row {
     > .#{$flexName}-33 { flex: 1 1 33.33%;  max-width: 33.33%;  max-height: 100%; box-sizing: border-box; }
@@ -995,24 +978,6 @@ input {
 
     // Required by Chrome M48+ due to http://crbug.com/546034
     > .flex { min-height: 0; }
-  }
-
-  @if ($name != '') {
-    .layout#{$name}-row {
-      > .flex-33 { flex: 1 1 100%;  max-width: 33.33%;  max-height: 100%; box-sizing: border-box; }
-      > .flex-66 { flex: 1 1 100%;  max-width: 66.66%;  max-height: 100%; box-sizing: border-box; }
-
-      // Required by Chrome M48+ due to http://crbug.com/546034
-      > .flex { min-width: 0;  }
-    }
-
-    .layout#{$name}-column {
-      > .flex-33 { flex: 1 1 100%;  max-width: 100%;  max-height: 33.33%; box-sizing: border-box; }
-      > .flex-66 { flex: 1 1 100%;  max-width: 100%;  max-height: 66.66%; box-sizing: border-box; }
-
-      // Required by Chrome M48+ due to http://crbug.com/546034
-      > .flex { min-height: 0; }
-    }
   }
 }
 
@@ -3724,7 +3689,9 @@ md-input-container {
     opacity: 0;
   }
 
-  &:not( .md-input-has-value ) input:not( :focus ),
+  &:not( .md-input-has-value ) input:not( :focus ) {
+    color: transparent;
+  }
   &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-ampm-field,
   &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-day-field,
   &:not( .md-input-has-value ) input:not( :focus )::-webkit-datetime-edit-hour-field,
@@ -4130,7 +4097,7 @@ md-list-item {
       .md-list-item-inner {
         // The list item content should fill the complete width.
         width: 100%;
-        min-height: inherit;
+        @include ie11-min-height-flexbug(inherit);
       }
 
     }
@@ -5252,7 +5219,7 @@ md-select {
   margin: 2.5*$baseline-grid 0 3*$baseline-grid + 2 0;
 
   &[required], &.ng-required {
-    &.ng-invalid:not(.md-no-asterisk) {
+    &.ng-empty.ng-invalid:not(.md-no-asterisk) {
       .md-select-value span:first-child:after {
         content: ' *';
         font-size: 13px;
@@ -6060,7 +6027,7 @@ md-slider-container {
 
   & > *:first-child,
   & > *:last-child {
-    &:not(md-slider){
+    &:not(md-slider) {
       min-width: $items-width;
       max-width: ($items-width * 2) - 8;
       height: $items-height;
@@ -6261,18 +6228,12 @@ md-switch {
     }
   }
 
-  &.md-focused:not([disabled]) {
+  &.md-focused {
     .md-thumb:before {
       left: -8px;
       top: -8px;
       right: -8px;
       bottom: -8px;
-    }
-
-    &:not(.md-checked) {
-      .md-thumb:before {
-        background-color: rgba(0, 0, 0, 0.12);
-      }
     }
   }
 
@@ -6446,7 +6407,7 @@ md-tabs-wrapper {
   display: block;
   position: relative;
   // transform is needed for iOS Safari to prevent content from disappearing on scroll
-  transform: translate3d(0, 0, 0);
+  transform: translate(0, 0);
   md-prev-button, md-next-button {
     height: 100%;
     width: $tabs-paginator-width;
@@ -6473,7 +6434,7 @@ md-tabs-wrapper {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate3d(-50%, -50%, 0);
+      transform: translate(-50%, -50%);
     }
 
     // For RTL tabs, rotate the buttons
@@ -6491,7 +6452,7 @@ md-tabs-wrapper {
 
     // In regular mode, we need to flip the chevron icon to point the other way
     md-icon {
-      transform: translate3d(-50%, -50%, 0) rotate(180deg);
+      transform: translate(-50%, -50%) rotate(180deg);
     }
   }
   &.md-stretch-tabs {
@@ -6536,8 +6497,9 @@ md-pagination-wrapper {
   display: flex;
   transition: transform $swift-ease-in-out-duration $swift-ease-in-out-timing-function;
   position: absolute;
+  width: 999999px;
   @include rtl-prop(left, right, 0, auto);
-  transform: translate3d(0, 0, 0);
+  transform: translate(0, 0);
   &.md-center-tabs {
     position: relative;
     justify-content: center;
@@ -6564,7 +6526,7 @@ md-tab-content {
   transition: transform $swift-ease-in-out-duration $swift-ease-in-out-timing-function;
   overflow: auto;
   // transform is needed for iOS Safari to prevent content from disappearing on scroll
-  transform: translate3d(0, 0, 0);
+  transform: translate(0, 0);
   &.md-no-scroll {
     bottom: auto;
     overflow: hidden;
@@ -7150,23 +7112,6 @@ $tooltip-max-width: 32px !default;
   }
 }
 
-.md-truncate {
-  overflow: hidden;
-  white-space: nowrap;
-
-  // Default overflow is ellipsis
-  text-overflow: ellipsis;
-
-  // Allow override to use clipping
-  &.md-clip {
-    text-overflow: clip;
-  }
-
-  // This is a flex-specific hack that forces the element to only take up available space.
-  &.flex {
-    width: 0;
-  }
-}
 $virtual-repeat-scrollbar-width: 16px !default;
 
 .md-virtual-repeat-container {
@@ -7225,6 +7170,23 @@ $virtual-repeat-scrollbar-width: 16px !default;
   }
 }
 
+.md-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+
+  // Default overflow is ellipsis
+  text-overflow: ellipsis;
+
+  // Allow override to use clipping
+  &.md-clip {
+    text-overflow: clip;
+  }
+
+  // This is a flex-specific hack that forces the element to only take up available space.
+  &.flex {
+    width: 0;
+  }
+}
 .md-whiteframe-1dp, .md-whiteframe-z1 {
   box-shadow: $whiteframe-shadow-1dp;
 }

@@ -4,7 +4,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.9-master-0046467
+ * v1.1.11-master-54e3413
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -29,7 +29,7 @@ angular.module('material.components.switch', [
  *
  * The switch directive is used very much like the normal [angular checkbox](https://docs.angularjs.org/api/ng/input/input%5Bcheckbox%5D).
  *
- * As per the [material design spec](http://www.google.com/design/spec/style/color.html#color-ui-color-application)
+ * As per the [Material Design spec](https://material.io/archive/guidelines/style/color.html#color-color-system)
  * the switch is in the accent color by default. The primary color palette may be used with
  * the `md-primary` class.
  *

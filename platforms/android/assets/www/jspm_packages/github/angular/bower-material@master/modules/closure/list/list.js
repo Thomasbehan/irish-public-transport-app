@@ -4,7 +4,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.9-master-0046467
+ * v1.1.11-master-54e3413
  */
 goog.provide('ngmaterial.components.list');
 goog.require('ngmaterial.core');
@@ -208,7 +208,7 @@ function mdListDirective($mdTheming) {
  * When using `<md-icon>` for an avatar, you have to use the `.md-avatar-icon` class.
  * <hljs lang="html">
  *   <md-list-item>
- *     <md-icon class="md-avatar-icon" md-svg-icon="avatars:timothy"></md-icon>
+ *     <md-icon class="md-avatar-icon" md-svg-icon="social:person"></md-icon>
  *     <span>Timothy Kopra</span>
  *   </md-list-item>
  * </hljs>

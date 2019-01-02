@@ -4,7 +4,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.9-master-0046467
+ * v1.1.11-master-54e3413
  */
 (function( window, angular, undefined ){
 "use strict";
@@ -1584,6 +1584,8 @@ angular.module('material.components.datepicker', [
    *  for a given date.
    * @property {function(number): string} weekNumberFormatter Function that returns a label for
    *  a week given the week number.
+   * @property {function(Date): string} longDateFormatter Function that formats a date into a long
+   *  `aria-label` that is read by the screen reader when the focused date changes.
    * @property {string} msgCalendar Translation of the label "Calendar" for the current locale.
    * @property {string} msgOpenCalendar Translation of the button label "Open calendar" for the
    *  current locale.
@@ -1593,6 +1595,11 @@ angular.module('material.components.datepicker', [
    * @property {Date} lastRenderableDate The last date that will be rendered by the datepicker
    *  calendar. Note that this will be ignored if a maximum date is set.
    *  Defaults to January 1st 2130.
+   * @property {function(string): boolean} isDateComplete Function to determine whether a string
+   *  makes sense to be parsed to a `Date` object. Returns `true` if the date appears to be complete
+   *  and parsing should occur. By default, this checks for 3 groups of text or numbers separated
+   *  by delimiters. This means that by default, date strings must include a month, day, and year
+   *  to be parsed and for the model to be updated.
    *
    * @usage
    * <hljs lang="js">
@@ -1619,6 +1626,16 @@ angular.module('material.components.datepicker', [
    *     $mdDateLocaleProvider.formatDate = function(date) {
    *       var m = moment(date);
    *       return m.isValid() ? m.format('L') : '';
+   *     };
+   *
+   *     // Allow only a day and month to be specified.
+   *     // This is required if using the 'M/D' format with moment.js.
+   *     $mdDateLocaleProvider.isDateComplete = function(dateString) {
+   *       dateString = dateString.trim();
+   *
+   *       // Look for two chunks of content (either numbers or text) separated by delimiters.
+   *       var re = /^(([a-zA-Z]{3,}|[0-9]{1,4})([ .,]+|[/-]))([a-zA-Z]{3,}|[0-9]{1,4})/;
+   *       return re.test(dateString);
    *     };
    *
    *     $mdDateLocaleProvider.monthHeaderFormatter = function(date) {
@@ -1695,6 +1712,13 @@ angular.module('material.components.datepicker', [
        * @type {function(Date): string}
        */
       this.longDateFormatter = null;
+
+      /**
+       * Function to determine whether a string makes sense to be
+       * parsed to a Date object.
+       * @type {function(string): boolean}
+       */
+      this.isDateComplete = null;
 
       /**
        * ARIA label for the calendar "dialog" used in the datepicker.
@@ -2174,12 +2198,11 @@ angular.module('material.components.datepicker', [
 (function() {
   'use strict';
 
-  // TODO(jelbourn): Demo that uses moment.js
   // TODO(jelbourn): forward more attributes to the internal input (required, autofocus, etc.)
   // TODO(jelbourn): something better for mobile (calendar panel takes up entire screen?)
   // TODO(jelbourn): input behavior (masking? auto-complete?)
 
-  DatePickerCtrl['$inject'] = ["$scope", "$element", "$attrs", "$window", "$mdConstant", "$mdTheming", "$mdUtil", "$mdDateLocale", "$$mdDateUtil", "$$rAF", "$filter"];
+  DatePickerCtrl['$inject'] = ["$scope", "$element", "$attrs", "$window", "$mdConstant", "$mdTheming", "$mdUtil", "$mdDateLocale", "$$mdDateUtil", "$$rAF", "$filter", "$timeout"];
   datePickerDirective['$inject'] = ["$$mdSvgRegistry", "$mdUtil", "$mdAria", "inputDirective"];
   angular.module('material.components.datepicker')
       .directive('mdDatepicker', datePickerDirective);
@@ -2428,8 +2451,8 @@ angular.module('material.components.datepicker', [
    *
    * ngInject @constructor
    */
-  function DatePickerCtrl($scope, $element, $attrs, $window, $mdConstant,
-    $mdTheming, $mdUtil, $mdDateLocale, $$mdDateUtil, $$rAF, $filter) {
+  function DatePickerCtrl($scope, $element, $attrs, $window, $mdConstant, $mdTheming, $mdUtil,
+                          $mdDateLocale, $$mdDateUtil, $$rAF, $filter, $timeout) {
 
     /** @final */
     this.$window = $window;
@@ -2440,7 +2463,7 @@ angular.module('material.components.datepicker', [
     /** @final */
     this.$mdConstant = $mdConstant;
 
-    /* @final */
+    /** @final */
     this.$mdUtil = $mdUtil;
 
     /** @final */
@@ -2448,6 +2471,9 @@ angular.module('material.components.datepicker', [
 
     /** @final */
     this.$mdDateLocale = $mdDateLocale;
+
+    /** @final */
+    this.$timeout = $timeout;
 
     /**
      * The root document element. This is used for attaching a top-level click handler to
@@ -3009,7 +3035,7 @@ angular.module('material.components.datepicker', [
         // in IE when md-open-on-focus is set. Also it needs to trigger
         // a digest, in order to prevent issues where the calendar wasn't
         // showing up on the next open.
-        self.$mdUtil.nextTick(reset);
+        self.$timeout(reset);
       } else {
         reset();
       }

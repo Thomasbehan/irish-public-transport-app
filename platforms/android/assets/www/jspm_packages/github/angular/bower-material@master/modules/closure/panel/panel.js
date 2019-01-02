@@ -4,7 +4,7 @@
  * AngularJS Material Design
  * https://github.com/angular/material
  * @license MIT
- * v1.1.9-master-0046467
+ * v1.1.11-master-54e3413
  */
 goog.provide('ngmaterial.components.panel');
 goog.require('ngmaterial.components.backdrop');
@@ -123,9 +123,11 @@ angular
  *   }
  *
  *   function PanelMenuCtrl(mdPanelRef) {
- *     // The controller is provided with an import named 'mdPanelRef'
+ *     // 'mdPanelRef' is injected in the controller.
  *     this.closeMenu = function() {
- *       mdPanelRef && mdPanelRef.close();
+ *       if (mdPanelRef) {
+ *         mdPanelRef.close();
+ *       }
  *     };
  *   }
  * })(angular);
