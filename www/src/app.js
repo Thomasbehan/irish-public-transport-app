@@ -28,9 +28,13 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', 'ngStorag
             .icon("unfavourite", "./assets/svg/favorite.svg", 24)
             .icon("favourite", "./assets/svg/favorite-border.svg", 24)
             .icon("home", "./assets/svg/home.svg", 24)
+            .icon("home_outlined", "./assets/svg/outlined/home.svg", 24)
             .icon("settings", "./assets/svg/settings.svg", 24)
+            .icon("settings_outlined", "./assets/svg/outlined/settings.svg", 24)
             .icon("save", "./assets/svg/save.svg", 24)
             .icon("directions", "./assets/svg/directions.svg", 24)
+            .icon("directions_outlined", "./assets/svg/outlined/directions.svg", 24)
+            .icon("close_outlined", "./assets/svg/outlined/close.svg", 24)
             .icon("phone", "./assets/svg/phone.svg", 24);
 
         $mdThemingProvider.theme('default')

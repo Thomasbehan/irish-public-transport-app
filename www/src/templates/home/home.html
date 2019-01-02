@@ -1,3 +1,10 @@
+<md-toolbar layout="row" class="md-toolbar-tools md-default">
+    <h2>The Irish Public Transport App - Home</h2>
+    
+    <md-button class="menu md-icon-button" ng-click="showSearch($event)" aria-label="search">
+        <md-icon md-svg-icon="search"></md-icon>
+    </md-button>
+</md-toolbar>
 <md-content layout="column" layout-align="center center">
 	<p>Welcome to the Irish Public Transport App</p>
 	<md-divider></md-divider>
@@ -24,6 +31,3 @@
 		</md-card-content>
 	</md-card>
 </md-content>
-<md-button ng-click="showSearch($event)" class="md-fab md-fab-bottom-right" aria-label="search">
-    <md-icon md-svg-icon="search"></md-icon>
-</md-button>

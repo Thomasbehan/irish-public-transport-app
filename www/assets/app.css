@@ -47,11 +47,6 @@ md-sidenav md-list {
   overflow: hidden;
 }
 
-#content {
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 5px;
-}
 
 #content .md-button.share {
   background-color: transparent;
@@ -140,4 +135,12 @@ span.name {
 .md-white {
     background: #fff!important;
     color: rgba(0,0,0,0.87)!important;
+}
+
+#bottom-nav {
+    float: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
 }

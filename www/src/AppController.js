@@ -32,9 +32,9 @@ function AppController(UsersDataService, $mdSidenav, $scope) {
     $mdSidenav('left').toggle();
   }
     $scope.sidenavItems = [
-        {"name": "Home", "icon": "home", "desc": "The main page including search and favourites", "link": "#/"},
-        {"name": "Routes", "icon": "directions", "desc": "This is for seatching by routes ", "link": "#/routes"},
-        {"name": "Settings", "icon": "settings", "desc": "A settings/about page", "link": "#/settings"}
+        {"name": "Home", "icon": "home_outlined", "desc": "The main page including search and favourites", "link": "#/"},
+        {"name": "Routes", "icon": "directions_outlined", "desc": "This is for seatching by routes ", "link": "#/routes"},
+        {"name": "Settings", "icon": "settings_outlined", "desc": "A settings/about page", "link": "#/settings"}
     ];
   /**
    * Select the current avatars

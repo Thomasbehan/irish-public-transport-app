@@ -1,4 +1,4 @@
-export default function homeController($scope, $http, $location, $mdDialog, $localStorage) {
+export default function homeController($scope, $http, $location, $mdDialog, $localStorage, $rootScope) {
     $scope.favourites = [];
     if ($localStorage.favourite != undefined){
         $scope.favourites = $localStorage.favourite;
@@ -27,4 +27,5 @@ export default function homeController($scope, $http, $location, $mdDialog, $loc
         }, function () {
         });
     };
+    
 }
