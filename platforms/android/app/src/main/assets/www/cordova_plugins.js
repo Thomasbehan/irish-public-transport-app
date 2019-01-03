@@ -13,6 +13,14 @@ module.exports = [
     "clobbers": [
       "window.plugins.socialsharing"
     ]
+  },
+  {
+    "id": "cordova-plugin-firebase-analytics.FirebaseAnalytics",
+    "file": "plugins/cordova-plugin-firebase-analytics/www/FirebaseAnalytics.js",
+    "pluginId": "cordova-plugin-firebase-analytics",
+    "merges": [
+      "cordova.plugins.firebase.analytics"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -20,7 +28,10 @@ module.exports.metadata =
 {
   "cordova-plugin-whitelist": "1.3.3",
   "es6-promise-plugin": "4.2.2",
-  "cordova-plugin-x-socialsharing": "5.4.3"
+  "cordova-plugin-x-socialsharing": "5.4.3",
+  "cordova-support-android-plugin": "1.0.1",
+  "cordova-support-google-services": "1.2.1",
+  "cordova-plugin-firebase-analytics": "1.0.1"
 };
 // BOTTOM OF METADATA
 });

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jan 02 23:34:27 GMT 2019
+#Thu Jan 03 22:28:38 GMT 2019
 739.baseType=DIRECTORY
 38.path=www/jspm_packages/github/angular/bower-material@master/modules/closure/panel/panel.css
 429.baseType=DIRECTORY

@@ -1,5 +1,5 @@
 export default function routesController($scope, $routeParams, $http, $location, $interval, $rootScope, $localStorage) {
-//    cordova.plugins.firebase.analytics.setCurrentScreen("Transport Routes");
+    cordova.plugins.firebase.analytics.setCurrentScreen("Transport Routes");
     $rootScope.loading = true;
     $scope.url = "https://data.smartdublin.ie/cgi-bin/rtpi/routelistinformation?format=json";
     $scope.getRoute = function () {

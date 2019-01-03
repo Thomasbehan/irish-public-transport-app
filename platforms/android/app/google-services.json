@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "859064978292",
+    "firebase_url": "https://natosoft-1ff5c.firebaseio.com",
+    "project_id": "natosoft-1ff5c",
+    "storage_bucket": "natosoft-1ff5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859064978292:android:bb6838220d5401cd",
+        "android_client_info": {
+          "package_name": "ie.natosoft.ipt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "859064978292-oqc70vrt1lg81p441d7parcj0vmse4a6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQSFyEjIyYOlQpBueRSmKpjdYsrgzhXqg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

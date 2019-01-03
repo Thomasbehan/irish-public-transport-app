@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">859064978292-oqc70vrt1lg81p441d7parcj0vmse4a6.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://natosoft-1ff5c.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">859064978292</string>
+    <string name="google_api_key" translatable="false">AIzaSyDQSFyEjIyYOlQpBueRSmKpjdYsrgzhXqg</string>
+    <string name="google_app_id" translatable="false">1:859064978292:android:bb6838220d5401cd</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDQSFyEjIyYOlQpBueRSmKpjdYsrgzhXqg</string>
+    <string name="google_storage_bucket" translatable="false">natosoft-1ff5c.appspot.com</string>
+    <string name="project_id" translatable="false">natosoft-1ff5c</string>
+</resources>

@@ -30,5 +30,23 @@
     },
     "is_top_level": false,
     "variables": {}
+  },
+  "cordova-plugin-firebase-analytics": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase-analytics"
+    },
+    "is_top_level": true,
+    "variables": {
+      "FIREBASE_CORE_VERSION": "16.0.+"
+    }
+  },
+  "cordova-support-google-services": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-support-google-services@1.2.1"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
