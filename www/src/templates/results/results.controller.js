@@ -75,16 +75,22 @@ export default function homeController($scope, $routeParams, $http, $location, $
                 $mdToast.show($mdToast.simple().textContent('Stop not found!').position('bottom center'));
             }
         });
+        $scope.startAutoUpdate();
+        $scope.startCountSecond();
         $scope.checkTime = 10;
     };
     $scope.checkStop();
     $scope.checkTime = 10;
-    $scope.autoUpdate = $interval(function () {
-        $scope.checkStop();
-    }, 10000);
-    $scope.countSecond = $interval(function () {
-        $scope.checkTime = $scope.checkTime - 1;
-    }, 1000);
+    $scope.startAutoUpdate = function () {
+        $scope.autoUpdate = $interval(function () {
+            $scope.checkStop();
+        }, 10000);
+    }
+    $scope.startCountSecond = function () {
+        $scope.countSecond = $interval(function () {
+            $scope.checkTime = $scope.checkTime - 1;
+        }, 1000);
+    }
     $scope.$on('$destroy', function () {
         $interval.cancel($scope.autoUpdate);
         $interval.cancel($scope.countSecond);
