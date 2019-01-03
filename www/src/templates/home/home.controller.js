@@ -1,5 +1,4 @@
 export default function homeController($scope, $http, $location, $mdDialog, $localStorage, $rootScope) {
-    cordova.plugins.firebase.analytics.setCurrentScreen("Homepage");
     $scope.favourites = [];
     if ($localStorage.favourite != undefined){
         $scope.favourites = $localStorage.favourite;

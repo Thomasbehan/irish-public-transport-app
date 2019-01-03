@@ -8,12 +8,12 @@
         "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\41b05fb15b5e984f98e865026a9552d6\\res\\layout\\notification_template_media_custom.xml"
     },
     {
-        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dd605b41382a4fa70ad214a79681237b\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
-    },
-    {
         "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_template_big_media_custom.xml.flat",
         "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\41b05fb15b5e984f98e865026a9552d6\\res\\layout\\notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dd605b41382a4fa70ad214a79681237b\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_common_full_open_on_phone.png.flat",
@@ -40,16 +40,16 @@
         "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\37fceff29a07b78fd674c714d1f54b02\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
     },
     {
-        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-ldpi_screen.png.flat",
-        "source": "C:\\_app\\ipt\\platforms\\android\\app\\src\\main\\res\\drawable-port-ldpi\\screen.png"
+        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dd605b41382a4fa70ad214a79681237b\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
     },
     {
         "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-hdpi_screen.png.flat",
         "source": "C:\\_app\\ipt\\platforms\\android\\app\\src\\main\\res\\drawable-port-hdpi\\screen.png"
     },
     {
-        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dd605b41382a4fa70ad214a79681237b\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-port-ldpi_screen.png.flat",
+        "source": "C:\\_app\\ipt\\platforms\\android\\app\\src\\main\\res\\drawable-port-ldpi\\screen.png"
     },
     {
         "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\xml_sharing_paths.xml.flat",
@@ -84,12 +84,12 @@
         "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dd605b41382a4fa70ad214a79681237b\\res\\drawable\\notification_bg_low.xml"
     },
     {
-        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dd605b41382a4fa70ad214a79681237b\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
-    },
-    {
         "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\layout_notification_media_action.xml.flat",
         "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\41b05fb15b5e984f98e865026a9552d6\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\Thomas\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dd605b41382a4fa70ad214a79681237b\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "C:\\_app\\ipt\\platforms\\android\\app\\build\\intermediates\\res\\merged\\release\\drawable-land-hdpi_screen.png.flat",

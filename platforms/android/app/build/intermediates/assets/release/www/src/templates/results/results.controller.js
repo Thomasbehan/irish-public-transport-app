@@ -1,5 +1,4 @@
 export default function homeController($scope, $routeParams, $http, $location, $interval, $localStorage, $mdToast, $rootScope, $filter) {
-    cordova.plugins.firebase.analytics.setCurrentScreen("Results Page");
     $scope.stops = [];
     $scope.stop = [];
     $rootScope.loading = true;
