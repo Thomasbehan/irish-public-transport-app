@@ -12,6 +12,7 @@ import homeController from 'src/templates/home/home.controller';
 import resultsController from 'src/templates/results/results.controller';
 import settingsController from 'src/templates/settings/settings.controller';
 import routesController from 'src/templates/routes/routes.controller';
+import stopsController from 'src/templates/stops/stops.controller';
 import Users from 'src/users/Users';
 
 export default angular.module('starter-app', ['ngMaterial', 'ngRoute', 'ngStorage', Users.name])
@@ -39,6 +40,7 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', 'ngStorag
             .icon("directions", "./assets/svg/directions.svg", 24)
             .icon("directions_outlined", "./assets/svg/outlined/directions.svg", 24)
             .icon("close_outlined", "./assets/svg/outlined/close.svg", 24)
+            .icon("stops_outlined", "./assets/svg/outlined/stops.svg", 24)
             .icon("phone", "./assets/svg/phone.svg", 24);
 
         $mdThemingProvider.theme('default')
@@ -62,10 +64,15 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', 'ngStorag
                 title: "Routes",
                 templateUrl: "src/templates/routes/routes.html",
                 controller: "routesController"
+            }).when("/stops", {
+                title: "Stops",
+                templateUrl: "src/templates/stops/stops.html",
+                controller: "stopsController"
             });
     })
     .controller('AppController', AppController)
     .controller('homeController', homeController)
     .controller('resultsController', resultsController)
     .controller('settingsController', settingsController)
-    .controller('routesController', routesController);
+    .controller('routesController', routesController)
+    .controller('stopsController', stopsController);
