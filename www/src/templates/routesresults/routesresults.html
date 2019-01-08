@@ -1,0 +1,28 @@
+<md-toolbar layout="row" class="md-toolbar-tools md-default">
+    <h2>Stop No. {{stop.stopid}} <span class="md-body-2">- Updating in {{checkTime}}s</span></h2>
+    <span flex></span>
+    <md-button class="menu md-icon-button" ng-click="toggleFavourite()" aria-label="fav">
+        <md-icon ng-if="isFavourite == false" md-svg-icon="favourite"></md-icon>
+        <md-icon ng-if="isFavourite == true" md-svg-icon="unfavourite"></md-icon>
+    </md-button>
+</md-toolbar>
+<md-toolbar layout="row" class="md-toolbar-tools md-white">
+    <span class="md-subhead">
+        Last checked at {{stop.formattedTime}}
+    </span>
+</md-toolbar>
+<md-content layout-fill>
+    <md-card ng-repeat="route in stops">
+        <md-card-title>
+            <md-card-title-text>
+                {{route.route}}
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            Due in {{route.estArrival}}
+        </md-card-content>
+    </md-card>
+</md-content>
+<script>
+cordova.plugins.firebase.analytics.setCurrentScreen("Results Page");
+</script>

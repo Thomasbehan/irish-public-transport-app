@@ -12,6 +12,7 @@ import homeController from 'src/templates/home/home.controller';
 import resultsController from 'src/templates/results/results.controller';
 import settingsController from 'src/templates/settings/settings.controller';
 import routesController from 'src/templates/routes/routes.controller';
+import routesresultsController from 'src/templates/routesresults/routesresults.controller';
 import Users from 'src/users/Users';
 
 export default angular.module('starter-app', ['ngMaterial', 'ngRoute', 'ngStorage', Users.name])
@@ -62,10 +63,15 @@ export default angular.module('starter-app', ['ngMaterial', 'ngRoute', 'ngStorag
                 title: "Routes",
                 templateUrl: "src/templates/routes/routes.html",
                 controller: "routesController"
+            }).when("/routes/:operator/:routeid", {
+                title: "Route Stops",
+                templateUrl: "src/templates/routesresults/routesresults.html",
+                controller: "routesresultsController"
             });
     })
     .controller('AppController', AppController)
     .controller('homeController', homeController)
     .controller('resultsController', resultsController)
     .controller('settingsController', settingsController)
-    .controller('routesController', routesController);
+    .controller('routesController', routesController)
+    .controller('routesresultsController', routesresultsController);
