@@ -12,15 +12,19 @@
     <md-card ng-repeat="stop in stops | filter: search | orderBy:'stop.displaystopid'">
         <md-card-title>
             <md-card-title-text>
-                {{stop.displaystopid}}
+                <span class="md-headline">{{stop.displaystopid}}</span>
+                <span class="md-subhead" ng-repeat="op in stop.operators">{{op.fullname}} <br /></span>
             </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media"><img ng-src="assets/img/Travel.png" /></div>
+            </md-card-title-media>
         </md-card-title>
-        <md-card-content>
-            <span ng-repeat="op in stop.operators">{{op.fullname}} <br/></span>
-<!--            <md-button class="md-raised md-accent" ng-href="#/results/{{stop.route}}">Get Info</md-button>-->
-        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="searchStop(stop.displaystopid)">Check Times</md-button>
+        </md-card-actions>
     </md-card>
 </md-content>
 <script>
-cordova.plugins.firebase.analytics.setCurrentScreen("Stops and Terminals");
+    cordova.plugins.firebase.analytics.setCurrentScreen("Stops and Terminals");
+
 </script>
