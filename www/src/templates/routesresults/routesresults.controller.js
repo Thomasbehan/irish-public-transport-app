@@ -1,8 +1,8 @@
-export default function routesresultsController($scope, $routeParams, $http, $location, $interval, $localStorage, $mdToast, $rootScope, $filter) {
+export default function routesresultsController($scope, $routeParams, $http, $location, $interval, $localStorage, $mdToast, $mdDialog, $rootScope, $filter) {
     $scope.stops = [];
     $scope.stop = [];
     $scope.isFavourite = false;
-    $scope.stop.routeid = $routeParams.routeid;
+    $scope.routeid = $routeParams.routeid;
     $scope.toggleFavourite = function () {
         if ($localStorage.favourite == undefined) {
             $localStorage.favourite = [];
@@ -16,6 +16,30 @@ export default function routesresultsController($scope, $routeParams, $http, $lo
             }
         }
         $scope.isFavourite = !$scope.isFavourite;
+    }
+    $scope.getStops = function(stops, ev){
+        $mdDialog.show({
+            locals:{
+                stops: stops  
+            },
+            controller: function ($scope, $location, $mdDialog, stops) {
+                $scope.stops = stops;
+                $scope.searchStop = function (search) {
+                    $location.path('/results/' + search);
+                    $mdDialog.hide();
+                }
+            },
+            templateUrl: 'src/templates/modals/stopsModal.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true
+        })
+        .then(function (result) {
+            
+        }, function () {
+            
+        });
     }
     $scope.url = "https://data.smartdublin.ie/cgi-bin/rtpi/routeinformation?routeid=" + $routeParams.routeid + 
         "&operator=" + $routeParams.operator +"&format=json";
