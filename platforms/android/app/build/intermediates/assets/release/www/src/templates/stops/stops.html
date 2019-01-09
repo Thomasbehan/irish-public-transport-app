@@ -1,0 +1,30 @@
+<md-toolbar layout="row" class="md-toolbar-tools md-default">
+    <h2>Stops and Terminals <span class="md-body-2">BETA</span></h2>
+    <span flex></span>
+</md-toolbar>
+<md-toolbar layout="row" class="md-toolbar-tools md-white">
+    <md-input-container>
+        <label>Search</label>
+        <input ng-model="search">
+    </md-input-container>
+</md-toolbar>
+<md-content layout-fill>
+    <md-card ng-repeat="stop in stops | filter: search | orderBy:'stop.displaystopid'">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{stop.displaystopid}}</span>
+                <span class="md-subhead" ng-repeat="op in stop.operators">{{op.fullname}} <br /></span>
+            </md-card-title-text>
+            <md-card-title-media>
+                <div class="md-media-sm card-media"><img ng-src="assets/img/Travel.png" /></div>
+            </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="searchStop(stop.displaystopid)">Check Times</md-button>
+        </md-card-actions>
+    </md-card>
+</md-content>
+<script>
+    cordova.plugins.firebase.analytics.setCurrentScreen("Stops and Terminals");
+
+</script>

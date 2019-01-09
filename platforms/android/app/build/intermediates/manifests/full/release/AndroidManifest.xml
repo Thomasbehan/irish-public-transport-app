@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ie.natosoft.ipt"
     android:hardwareAccelerated="true"
-    android:versionCode="10102"
-    android:versionName="1.1.2" >
+    android:versionCode="10103"
+    android:versionName="1.1.3" >
 
     <uses-sdk
         android:minSdkVersion="19"

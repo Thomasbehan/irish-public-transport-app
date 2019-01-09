@@ -20,7 +20,6 @@ export default function settingsController($scope, $http, $location, $mdDialog, 
         var onError = function(msg) {
           console.log("Sharing failed with message: " + msg);
         };
-
         window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
     }
 }

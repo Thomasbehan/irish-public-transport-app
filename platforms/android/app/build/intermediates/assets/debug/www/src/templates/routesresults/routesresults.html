@@ -1,0 +1,27 @@
+<md-toolbar layout="row" class="md-toolbar-tools md-default">
+    <h2>Route {{routeid}}</h2>
+    <span flex></span>
+    <md-button class="menu md-icon-button" ng-click="toggleFavourite()" aria-label="fav">
+        <md-icon ng-if="isFavourite == false" md-svg-icon="favourite"></md-icon>
+        <md-icon ng-if="isFavourite == true" md-svg-icon="unfavourite"></md-icon>
+    </md-button>
+</md-toolbar>
+<md-toolbar ng-if="stops.length > 0" layout="row" class="md-toolbar-tools md-white">
+    Destination
+</md-toolbar>
+<md-content layout-fill>
+    <md-card ng-repeat="route in stops">
+        <md-card-title>
+            <md-card-title-text>
+               Going to<br/>  
+                {{route.origin}}
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+             <md-button ng-click="getStops(route.stops, $event)" class="md-raised md-primary">Show Stops</md-button>
+        </md-card-content>
+    </md-card>
+</md-content>
+<script>
+cordova.plugins.firebase.analytics.setCurrentScreen("Results Page");
+</script>

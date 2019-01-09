@@ -1,0 +1,1 @@
+module.exports = require("github:angular/bower-angular-route@1.5.8/angular-route");
