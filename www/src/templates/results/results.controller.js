@@ -24,6 +24,10 @@ export default function homeController($scope, $routeParams, $http, $location, $
         $http.get($scope.url).then(function (response) {
             $rootScope.loading = false;
             if (response.data.errorcode === "0") {
+                if($scope.checkTime === -1){
+                    $scope.autoUpdateFunction();
+                    $scope.countSecondFunction();
+                }
                 $scope.stop = response.data;
                 if ($localStorage.favourite != undefined) {
                     if ($localStorage.favourite.indexOf($scope.stop.stopid) > -1) {
@@ -72,21 +76,19 @@ export default function homeController($scope, $routeParams, $http, $location, $
                 });
             } else {
                 $location.path('/');
-                $mdToast.show($mdToast.simple().textContent('Stop not found!').position('bottom center'));
+                $mdToast.show($mdToast.simple().textContent('Stop not found or there was no realtime data available!').position('bottom center'));
             }
         });
-        $scope.startAutoUpdate();
-        $scope.startCountSecond();
         $scope.checkTime = 10;
     };
     $scope.checkStop();
-    $scope.checkTime = 10;
-    $scope.startAutoUpdate = function () {
+    $scope.checkTime = -1;
+    $scope.autoUpdateFunction = function(){
         $scope.autoUpdate = $interval(function () {
             $scope.checkStop();
         }, 10000);
     }
-    $scope.startCountSecond = function () {
+    $scope.countSecondFunction = function() {
         $scope.countSecond = $interval(function () {
             $scope.checkTime = $scope.checkTime - 1;
         }, 1000);
