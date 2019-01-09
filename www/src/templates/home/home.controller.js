@@ -1,4 +1,4 @@
-export default function homeController($scope, $http, $location, $mdDialog, $localStorage, $rootScope) {
+export default function homeController($scope, $http, $location, $mdDialog, $localStorage, $rootScope, stopsService) {
     $scope.favourites = [];
     if ($localStorage.favourite != undefined){
         $scope.favourites = $localStorage.favourite;
@@ -6,8 +6,7 @@ export default function homeController($scope, $http, $location, $mdDialog, $loc
         $localStorage.favourite = [];
     }
     $scope.searchStop = function (search) {
-        $location.path('/results/' + search);
-        $mdDialog.hide();
+        stopsService.searchStop(search);
     }
     $scope.showSearch = function (ev) {
         $mdDialog.show({
@@ -24,7 +23,9 @@ export default function homeController($scope, $http, $location, $mdDialog, $loc
             fullscreen: false
         })
         .then(function (result) {
+            
         }, function () {
+            
         });
     };
     
