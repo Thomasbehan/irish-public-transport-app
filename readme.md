@@ -1,4 +1,6 @@
-# Irish Public Transport App Project
+# Irish Public Transport App Project (DEPRECIATED) 
+
+Not in development anymore as the Transport For Ireland App is sufficiant and lack of open api's prevents further improvement of features
 
 ## Introduction
 
