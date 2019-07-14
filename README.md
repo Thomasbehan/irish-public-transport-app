@@ -1,4 +1,4 @@
-# irish_public_transport_app
+# Irish Public Transport App
 
 Irish Public Transport App
 
