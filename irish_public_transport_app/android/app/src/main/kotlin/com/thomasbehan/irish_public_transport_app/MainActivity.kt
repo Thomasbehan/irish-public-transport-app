@@ -1,4 +1,4 @@
-package com.thomasbehan.irish_public_transport_app
+package ie.natosoft.ipt
 
 import android.os.Bundle
 

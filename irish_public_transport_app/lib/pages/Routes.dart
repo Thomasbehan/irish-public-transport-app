@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:screen/screen.dart';
-
+import 'package:irish_public_transport_app/elements/topBar.dart';
 import 'RouteDetails.dart';
 
 class Routes extends StatefulWidget {
@@ -19,15 +18,11 @@ class _RoutesState extends State<Routes> {
   TextEditingController controller = new TextEditingController();
   String filter;
 
-  void keepScreenOn() {
-    // Prevent screen from going into sleep mode:
-    Screen.keepOn(true);
-  }
+
 
   List routes = [];
 
   Future<List> _getRoutes() async {
-    keepScreenOn();
     var data = await http.get(
         'https://data.smartdublin.ie/cgi-bin/rtpi/routelistinformation?format=json',
         headers: {"Accept": "application/json"});
@@ -62,23 +57,7 @@ class _RoutesState extends State<Routes> {
 
   @override
   Widget build(BuildContext context) {
-
-    final topAppBar = AppBar(
-      elevation: 0.1,
-      backgroundColor: Color.fromRGBO(45, 150, 255, 1.0),
-      title: Text('IPT ALPHA'),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Routes()),
-            );
-          },
-        )
-      ],
-    );
+    final topAppBar = topBar.get(context, 'IPT BETA');
 
     return Scaffold(
         appBar: topAppBar,

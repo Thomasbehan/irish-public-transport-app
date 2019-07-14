@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'Realtime.dart';
-import 'Routes.dart';
+import 'package:irish_public_transport_app/elements/topBar.dart';
 import 'package:irish_public_transport_app/elements/sidemenu.dart';
 
 class Stops extends StatefulWidget {
@@ -66,26 +66,11 @@ class _StopsState extends State<Stops> {
     if (widget.routeId != null) {
       title = widget.routeId + ' ' + title;
     }
-    final topAppBar = AppBar(
-      elevation: 0.1,
-      backgroundColor: Color.fromRGBO(45, 150, 255, 1.0),
-      title: Text(title),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Routes()),
-            );
-          },
-        )
-      ],
-    );
+    final topAppBar = topBar.get(context, title);
 
     return Scaffold(
         appBar: topAppBar,
-        drawer: sidemenu.getMenu(),
+        drawer: sidemenu.getMenu(context),
         body: new Material(
             child: new Column(children: <Widget>[
           Padding(

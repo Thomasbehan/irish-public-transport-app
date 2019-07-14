@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
+import 'package:irish_public_transport_app/pages/Routes.dart';
+import 'package:irish_public_transport_app/pages/Favourites.dart';
+import 'package:irish_public_transport_app/pages/Stops.dart';
 
 class sidemenu {
-  static getMenu(){
+  static getMenu(context){
     return Drawer(
       // Add a ListView to the drawer. This ensures the user can scroll
       // through the options in the drawer if there isn't enough vertical
@@ -12,23 +15,40 @@ class sidemenu {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text('Drawer Header'),
+            child: Text('The Irish Public Transport App BETA'),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.black,
+              image:new DecorationImage(
+                  fit: BoxFit.cover,
+                  image: new AssetImage('assets/sidemenu.jpg')
+              )
             ),
           ),
           ListTile(
-            title: Text('Item 1'),
+            title: Text('Your Favourites'),
             onTap: () {
-              // Update the state of the app.
-              // ...
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Favourites()),
+              );
             },
           ),
           ListTile(
-            title: Text('Item 2'),
+            title: Text('Routes'),
             onTap: () {
-              // Update the state of the app.
-              // ...
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Routes()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Stops'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Stops()),
+              );
             },
           ),
         ],

@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:irish_public_transport_app/elements/sidemenu.dart';
-import 'Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:irish_public_transport_app/elements/topBar.dart';
 
 class Realtime extends StatefulWidget {
   Realtime({Key key, @required this.stopId, this.title}) : super(key: key);
@@ -40,26 +40,11 @@ class _RealtimeState extends State<Realtime> {
 
   @override
   Widget build(BuildContext context) {
-    final topAppBar = AppBar(
-      elevation: 0.1,
-      backgroundColor: Color.fromRGBO(45, 150, 255, 1.0),
-      title: Text('Stop No. ' + widget.stopId),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Routes()),
-            );
-          },
-        )
-      ],
-    );
+    final topAppBar = topBar.getWithFav(context, 'Stop No. ' + widget.stopId, widget.stopId);
 
     return Scaffold(
         appBar: topAppBar,
-        drawer: sidemenu.getMenu(),
+        drawer: sidemenu.getMenu(context),
         body: new Material(
             child: new Column(children: <Widget>[
           new Expanded(

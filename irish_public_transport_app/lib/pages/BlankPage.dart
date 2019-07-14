@@ -44,7 +44,7 @@ class _BlankPageState extends State<BlankPage> {
 
     return Scaffold(
         appBar: topAppBar,
-        drawer: sidemenu.getMenu(),
+        drawer: sidemenu.getMenu(context),
         body: new Material(
             child: new Card(
                         child: new ListTile(

@@ -31,6 +31,8 @@
 
 # Android related
 **/android/**/gradle-wrapper.jar
+**/android/key.properties
+**/android/app/keystore.jks
 **/android/.gradle
 **/android/captures/
 **/android/gradlew
