@@ -1,1 +1,0 @@
-module.exports = require("npm:ngstorage@0.3.11/ngStorage.js");
