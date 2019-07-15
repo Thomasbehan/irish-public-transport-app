@@ -23,6 +23,7 @@ dependencies:
   http:
   toast: ^0.1.3
   screen:
+  flutter_crashlytics: ^1.0.0
   flutter:
     sdk: flutter
 
