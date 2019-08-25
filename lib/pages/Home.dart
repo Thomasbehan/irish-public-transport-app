@@ -39,6 +39,7 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: SizedBox.fromSize(
           size: const Size.fromHeight(500.0),
