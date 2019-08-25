@@ -5,6 +5,7 @@ import 'package:irish_public_transport_app/transformers/HomeTransformers.dart';
 import 'Routes.dart';
 import 'Stops.dart';
 import 'Favourites.dart';
+import 'Settings.dart';
 import 'package:screen/screen.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,6 +29,12 @@ class HomePage extends StatelessWidget {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Stops()),
+      );
+    }
+    void _goToSettings() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Settings()),
       );
     }
 
@@ -60,6 +67,11 @@ class HomePage extends StatelessWidget {
 
                           case "FAVOURITES": {
                             _goToFavourites();
+                          }
+                          break;
+
+                          case "SETTINGS": {
+                            _goToSettings();
                           }
                           break;
 

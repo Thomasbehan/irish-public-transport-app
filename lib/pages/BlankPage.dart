@@ -2,9 +2,9 @@
  * THIS IS AN EXAMPLE PAGE PLEASE DO NOT EDIT OR DELETE
  */
 
-import 'Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:irish_public_transport_app/elements/sidemenu.dart';
+import 'package:irish_public_transport_app/elements/topBar.dart';
 
 class BlankPage extends StatefulWidget {
   BlankPage({Key key, this.title}) : super(key: key);
@@ -25,22 +25,7 @@ class _BlankPageState extends State<BlankPage> {
   @override
   Widget build(BuildContext context) {
 
-    final topAppBar = AppBar(
-      elevation: 0.1,
-      backgroundColor: Color.fromRGBO(45, 150, 255, 1.0),
-      title: Text('IPT EXAMPLE PAGE'),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.home),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => Routes()),
-            );
-          },
-        )
-      ],
-    );
+    final topAppBar = topBar.get(context, 'IPT');
 
     return Scaffold(
         appBar: topAppBar,

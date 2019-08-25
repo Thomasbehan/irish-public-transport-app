@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:irish_public_transport_app/elements/topBar.dart';
+
 import 'RouteDetails.dart';
 
 class Routes extends StatefulWidget {
@@ -17,8 +19,6 @@ class Routes extends StatefulWidget {
 class _RoutesState extends State<Routes> {
   TextEditingController controller = new TextEditingController();
   String filter;
-
-
 
   List routes = [];
 
@@ -51,7 +51,9 @@ class _RoutesState extends State<Routes> {
   void _goToDetails(operator, routeId) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => RouteDetails(operator: operator, route: routeId)),
+      MaterialPageRoute(
+          builder: (context) =>
+              RouteDetails(operator: operator, route: routeId)),
     );
   }
 

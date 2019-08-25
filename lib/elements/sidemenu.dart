@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:irish_public_transport_app/pages/Routes.dart';
 import 'package:irish_public_transport_app/pages/Favourites.dart';
 import 'package:irish_public_transport_app/pages/Stops.dart';
+import 'package:irish_public_transport_app/pages/Settings.dart';
 
 class sidemenu {
   static getMenu(context){
@@ -48,6 +49,15 @@ class sidemenu {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Stops()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Settings'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Settings()),
               );
             },
           ),
