@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:irish_public_transport_app/pages/Routes.dart';
 import 'package:irish_public_transport_app/pages/Favourites.dart';
+import 'package:irish_public_transport_app/pages/Homev2.dart';
 import 'package:irish_public_transport_app/pages/Stops.dart';
 import 'package:irish_public_transport_app/pages/Settings.dart';
 
@@ -24,6 +25,15 @@ class sidemenu {
                   image: new AssetImage('assets/sidemenu.jpg')
               )
             ),
+          ),
+          ListTile(
+            title: Text('Home'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            },
           ),
           ListTile(
             title: Text('Your Favourites'),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/Home.dart';
+import 'pages/Homev2.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 void main() {
@@ -11,7 +11,7 @@ void main() {
   };
 
   runApp(MaterialApp(
-    title: 'IPT ALPHA',
-    home: new HomePage(),
+    title: 'Dublin Transport',
+    home: new Home(),
   ));
 }

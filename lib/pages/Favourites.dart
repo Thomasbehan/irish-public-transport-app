@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:irish_public_transport_app/elements/sidemenu.dart';
 import 'package:irish_public_transport_app/elements/topBar.dart';
+import 'package:irish_public_transport_app/pages/Homev2.dart';
 import 'package:toast/toast.dart';
-import 'package:irish_public_transport_app/pages/Home.dart';
 
 import 'Realtime.dart';
 
@@ -143,7 +143,7 @@ class _FavouritesState extends State<Favourites> {
       onWillPop: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomePage()),
+          MaterialPageRoute(builder: (context) => Home()),
         );
       },
     );

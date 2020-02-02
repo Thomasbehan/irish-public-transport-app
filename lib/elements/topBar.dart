@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:irish_public_transport_app/pages/Home.dart';
+import 'package:irish_public_transport_app/pages/Homev2.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:toast/toast.dart';
 
@@ -19,7 +19,7 @@ class topBar {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => Home()),
             );
           },
         )
@@ -58,7 +58,7 @@ class topBar {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => Home()),
             );
           },
         )

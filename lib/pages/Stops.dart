@@ -6,11 +6,12 @@ import 'package:irish_public_transport_app/elements/topBar.dart';
 import 'package:irish_public_transport_app/elements/sidemenu.dart';
 
 class Stops extends StatefulWidget {
-  Stops({Key key, this.stops, this.routeId, this.title}) : super(key: key);
+  Stops({Key key, this.stops, this.routeId, this.title, this.search}) : super(key: key);
 
   final List stops;
   final String routeId;
   final String title;
+  final String search;
 
   @override
   _StopsState createState() => _StopsState();
@@ -20,6 +21,7 @@ class _StopsState extends State<Stops> {
   TextEditingController controller = new TextEditingController();
   String filter;
   String title;
+  String search;
   List stops = [];
 
   Future<List> _getDetails() async {
@@ -42,7 +44,7 @@ class _StopsState extends State<Stops> {
     }
     controller.addListener(() {
       setState(() {
-        filter = controller.text.toLowerCase();
+          filter = controller.text.toLowerCase();
       });
     });
     @override
@@ -62,10 +64,15 @@ class _StopsState extends State<Stops> {
   @override
   Widget build(BuildContext context) {
 
+    if(widget.search != null){
+      controller.text = widget.search;
+    }
+
     title = 'Stops & Terminals';
     if (widget.routeId != null) {
       title = widget.routeId + ' ' + title;
     }
+
     final topAppBar = topBar.get(context, title);
 
     return Scaffold(

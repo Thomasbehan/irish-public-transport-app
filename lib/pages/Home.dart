@@ -17,12 +17,14 @@ class HomePage extends StatelessWidget {
         MaterialPageRoute(builder: (context) => Favourites()),
       );
     }
+
     void _goToRoutes() {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => Routes()),
       );
     }
+
     // Prevent screen from going into sleep mode:
     Screen.keepOn(true);
     void _goToStops() {
@@ -31,6 +33,7 @@ class HomePage extends StatelessWidget {
         MaterialPageRoute(builder: (context) => Stops()),
       );
     }
+
     void _goToSettings() {
       Navigator.push(
         context,
