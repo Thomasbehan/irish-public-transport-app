@@ -8,7 +8,6 @@ import 'package:irish_public_transport_app/elements/sidemenu.dart';
 import 'package:irish_public_transport_app/elements/topBar.dart';
 import 'package:irish_public_transport_app/pages/Homev2.dart';
 import 'package:toast/toast.dart';
-
 import 'Realtime.dart';
 
 class Favourites extends StatefulWidget {

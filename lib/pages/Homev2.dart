@@ -3,13 +3,15 @@
  */
 
 import 'package:flutter/material.dart';
-import 'package:irish_public_transport_app/util/placeholders.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:irish_public_transport_app/util/favourites.dart';
 import 'package:irish_public_transport_app/util/pages.dart';
 import 'package:screen/screen.dart';
 import 'Favourites.dart';
 import 'Routes.dart';
 import 'Settings.dart';
 import 'Stops.dart';
+import 'Realtime.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -19,6 +21,35 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final TextEditingController _searchControl = new TextEditingController();
 
+
+  final storage = new FlutterSecureStorage();
+  Map<String, String> allValues;
+  var list = [];
+  Future loadFavourites() async {
+    Map<String, String> allValues = await storage.readAll();
+    if (allValues.isNotEmpty) {
+      allValues.removeWhere((k, v) => k.contains("Setting_"));
+      favourites = [];
+    }
+    allValues.forEach((k, v) => favourites.add({"stop": v, "name": "Stop No: " + v, "action": "Click to view favourite"}));
+    print(favourites);
+    setState(() {
+
+    });
+  }
+
+
+  void _goToRealtime(stopId) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Realtime(stopId: stopId)),
+    );
+  }
+
+  @override
+  void initState() {
+    loadFavourites();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -220,9 +251,9 @@ class _HomeState extends State<Home> {
               primary: false,
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: pages == null ? 0 : pages.length,
+              itemCount: favourites == null ? 0 : favourites.length,
               itemBuilder: (BuildContext context, int index) {
-                Map page = placeholders[index];
+                Map page = favourites[index];
                 return Padding(
                   padding: const EdgeInsets.only(bottom:15.0),
                   child: InkWell(
@@ -234,7 +265,7 @@ class _HomeState extends State<Home> {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(5),
                             child: Image.asset(
-                              "${page["img"]}",
+                              "assets/stops.jpg",
                               height: 70,
                               width: 70,
                               fit: BoxFit.cover,
@@ -254,7 +285,7 @@ class _HomeState extends State<Home> {
                                 Container(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    "${page["name"]}",
+                                    "${page['name']}",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 14,
@@ -278,7 +309,7 @@ class _HomeState extends State<Home> {
                                     Container(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
-                                        "${page["description"]}",
+                                        "${page['action']}",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 13,
@@ -295,7 +326,7 @@ class _HomeState extends State<Home> {
                                 Container(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    "${page["details"]}",
+                                    "",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
@@ -313,7 +344,11 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-//                    onTap: //TODO: add most used metric
+                    onTap: (){
+                      if (favourites[index]["stop"] != null){
+                        this._goToRealtime(favourites[index]["stop"]);
+                      }
+                    },
                   ),
                 );
               },

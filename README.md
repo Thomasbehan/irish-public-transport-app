@@ -18,6 +18,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Building the APK for release
 
-`flutter build apk --release --target-platform=android-arm64`
+`flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi`
 OR
 `flutter build appbundle`
